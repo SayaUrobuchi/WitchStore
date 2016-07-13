@@ -51,8 +51,8 @@ public class HuntScene : Scene
 	public int turn_draw;
 
 	public int hand_current;
-	public List<Hand> hand;
-	public List<Hand> hand_temp;
+	public List<Card> hand;
+	public List<Card> hand_temp;
 	public List<int> deck;
 
 	public Hero player_battler;
@@ -79,8 +79,8 @@ public class HuntScene : Scene
 		turn_draw = 3;
 
 		hand_current = 0;
-		hand = new List<Hand>();
-		hand_temp = new List<Hand>();
+		hand = new List<Card>();
+		hand_temp = new List<Card>();
 
 		deck = new List<int>(new int[] {
 			999, 
@@ -332,7 +332,7 @@ public class HuntScene : Scene
 		data.real_a = lerp(data.real_a, data.a, spd);*/
 	}
 
-	public void hand_push(Hand card)
+	public void hand_push(Card card)
 	{
 		/*var location = (hand.length > 0 ? (hand_current+1) % hand.length : 0);
 		hand.splice(location, 0, card);
@@ -349,9 +349,9 @@ public class HuntScene : Scene
 		hand_current = location;*/
 	}
 
-	public Hand hand_pop()
+	public Card hand_pop()
 	{
-		Hand res = null;//hand.splice(hand_current, 1)[0];
+		Card res = null;//hand.splice(hand_current, 1)[0];
 		//hand.splice(hand_current, 1);
 		//hand_current %= hand.length;
 		return res;
@@ -403,15 +403,15 @@ public class HuntScene : Scene
 	{
 		for (var i=0; i<num&&hand.Count<hand_limit; i++)
 		{
-			Hand card = take_card_from_deck();
+			Card card = take_card_from_deck();
 			hand_push(card);
 		}
 	}
 
-	public Hand take_card_from_deck()
+	public Card take_card_from_deck()
 	{
 		int idx = 0;//random(deck.length);
-		Hand res = null;//deck[idx];
+		Card res = null;//deck[idx];
 		//deck.splice(idx, 1);
 		return res;
 	}
