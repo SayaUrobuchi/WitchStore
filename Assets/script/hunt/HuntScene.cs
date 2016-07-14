@@ -12,23 +12,24 @@ public abstract class HuntEvent
 	}
 
 	public Type type;
+	public HuntScene field;
 
 	public abstract void update_draw();
 	public abstract void update_state();
 
-	public void setup()
+	public virtual void setup()
 	{
 	}
 
-	public void update_hand_move()
+	public virtual void update_hand_move()
 	{
 	}
 
-	public void update_logic_hand()
+	public virtual void update_logic_hand()
 	{
 	}
 
-	public void update_background()
+	public virtual void update_background()
 	{
 	}
 }
@@ -57,8 +58,8 @@ public class HuntScene : Scene
 
 	public Hero player_battler;
 
-	public Sprite tachie;
-	public Sprite tachie2;
+	public Sprite tachie_spr1;
+	public Sprite tachie_spr2;
 
 	public int enemy_area_x;
 	public int enemy_area_y;
@@ -70,10 +71,21 @@ public class HuntScene : Scene
 	public int shake_count;
 	public int shake_length;
 
+	public UIHelper helper;
+	public UITachie tachie1;
+	public UITachie tachie2;
+	public UISimpleDialog dialog;
+
 	public override void enter ()
 	{
 		fid = 0;
 		state = State.NONE;
+
+		// load ui elements
+		helper = Megami.worship.helper.load();
+		tachie1 = Megami.worship.tachie1.load();
+		tachie2 = Megami.worship.tachie2.load();
+		dialog = Megami.worship.dialog.load();
 
 		hand_limit = 10;
 		turn_draw = 3;
@@ -101,9 +113,10 @@ public class HuntScene : Scene
 		});
 
 		player_battler = new Hero();
+		player_battler.load_ui();
 
-		tachie = null;//image.TACHIE_AKI_NORMAL;
-		tachie2 = null;//image.TACHIE_SAKO_NORMAL;
+		tachie_spr1 = null;//image.TACHIE_AKI_NORMAL;
+		tachie_spr2 = null;//image.TACHIE_SAKO_NORMAL;
 
 		enemy_area_x = 500;
 		enemy_area_y = 450;
@@ -191,7 +204,7 @@ public class HuntScene : Scene
 			};*/
 			//direct to battle 
 			state = State.EVENT;
-			evt = new BattleHuntEvent(null);
+			evt = new BattleHuntEvent(this, null);
 			evt.setup();
 
 			break;
@@ -416,9 +429,9 @@ public class HuntScene : Scene
 		return res;
 	}
 
-	public void set_helper(string data)
+	public void set_helper(Dictionary<INPUT, string> dict)
 	{
-		//helper_str = generate_helper_str(data);
+		helper.setContent(dict);
 	}
 
 	public void set_background(Sprite bg)

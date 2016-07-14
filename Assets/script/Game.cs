@@ -1,14 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Game : MonoBehaviour {
-
-	public Game Instance;
-
-	void Awake ()
-	{
-		Instance = this;
-	}
+public static class Game
+{
 
 	public static INPUT parse_key(KEY key)
 	{
@@ -36,5 +30,17 @@ public class Game : MonoBehaviour {
 			return INPUT.PAGEDOWN;
 		}
 		return INPUT.UNKNOWN;
+	}
+
+	public static Transform Clear(this Transform transform)
+	{
+		foreach (Transform child in transform)
+		{
+			if (child.parent == transform)
+			{
+				child.gameObject.SetActive(false);
+			}
+		}
+		return transform;
 	}
 }
