@@ -46,12 +46,12 @@ public class UIHelper : MonoBehaviour {
 		return this;
 	}
 
-	public void setContent(string s)
+	public void set_content(string s)
 	{
 		text.text = s;
 	}
 
-	public void setContent(Dictionary<INPUT, string> dict)
+	public void set_content(Dictionary<INPUT, string> dict)
 	{
 		string res = "";
 		foreach (var item in dict)
@@ -60,7 +60,7 @@ public class UIHelper : MonoBehaviour {
 				generate_richtext_colored_str(symbol_mapping[item.Key], "#FFFF66"), 
 				item.Value);
 		}
-		setContent(res);
+		set_content(res);
 	}
 
 	public string generate_richtext_colored_str(string s, string color)

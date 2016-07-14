@@ -328,6 +328,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b74d2142e896dff4fbba5a82bd6a1c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current: {fileID: 11489862}
+  max: {fileID: 11407142}
+  diff: {fileID: 11497766}
+  front: {fileID: 11425084}
+  back: {fileID: 11485358}
+  predict: {fileID: 11410938}
+  whole_bar: {fileID: 11406510}
+  fast_anitime: 0.2
+  slow_anitime: 1
 --- !u!114 &11474470
 MonoBehaviour:
   m_ObjectHideFlags: 1

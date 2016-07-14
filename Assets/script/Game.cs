@@ -3,7 +3,6 @@ using System.Collections;
 
 public static class Game
 {
-
 	public static INPUT parse_key(KEY key)
 	{
 		switch (key)

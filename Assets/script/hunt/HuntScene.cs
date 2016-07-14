@@ -279,8 +279,8 @@ public class HuntScene : Scene
 			{
 				string msg = executing_action.data.name;
 			}
-			msg = "臣亮言：先帝創業未半，而中道崩殂。今天下三分，益州疲弊，此誠危急存亡之秋也。然侍衛之臣，不懈於內；忠志之士，忘身於外";
 			*/
+		dialog.set_content("臣亮言：先帝創業未半，而中道崩殂。今天下三分，益州疲弊，此誠危急存亡之秋也。然侍衛之臣，不懈於內；忠志之士，忘身於外者，蓋追先帝");
 	}
 
 	public void update_map()
@@ -431,7 +431,7 @@ public class HuntScene : Scene
 
 	public void set_helper(Dictionary<INPUT, string> dict)
 	{
-		helper.setContent(dict);
+		helper.set_content(dict);
 	}
 
 	public void set_background(Sprite bg)

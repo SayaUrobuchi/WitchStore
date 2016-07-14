@@ -29,4 +29,9 @@ public class UISimpleDialog : MonoBehaviour
 		gameObject.SetActive(true);
 		return this;
 	}
+
+	public void set_content(string s)
+	{
+		text.text = s;
+	}
 }
