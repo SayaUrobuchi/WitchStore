@@ -80,6 +80,7 @@ GameObject:
   - 114: {fileID: 11413384}
   - 114: {fileID: 11429576}
   - 114: {fileID: 11462938}
+  - 114: {fileID: 11432700}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -96,6 +97,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22482154}
   - 222: {fileID: 22229626}
+  - 114: {fileID: 11455950}
   m_Layer: 5
   m_Name: Hand
   m_TagString: Untagged
@@ -254,6 +256,40 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 16
+--- !u!114 &11432700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560ae3a8487818f4395831f5925a08c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost_ui: {fileID: 11493436}
+  speed_ui: {fileID: 11430374}
+  name_ui: {fileID: 11415526}
+  desc_obj: {fileID: 124038}
+  desc_ui: {fileID: 11494418}
+--- !u!114 &11455950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15c48949c508684295719ea08ed9ff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card_template: {fileID: 11432700}
+  center_line: -180
+  level_x: 080000000e0000001a0000002a000000
+  level_y: fcffffff04000000080000000c000000
+  base_x: 8
+  base_y: 50
+  desc_y: 110
 --- !u!114 &11462938
 MonoBehaviour:
   m_ObjectHideFlags: 1

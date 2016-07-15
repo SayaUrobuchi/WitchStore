@@ -75,6 +75,7 @@ public class HuntScene : Scene
 	public UITachie tachie1;
 	public UITachie tachie2;
 	public UISimpleDialog dialog;
+	public UIHand hand_ui;
 
 	public override void enter ()
 	{
@@ -86,6 +87,7 @@ public class HuntScene : Scene
 		tachie1 = Megami.worship.tachie1.load();
 		tachie2 = Megami.worship.tachie2.load();
 		dialog = Megami.worship.dialog.load();
+		hand_ui = Megami.worship.hand.load();
 
 		hand_limit = 10;
 		turn_draw = 3;
@@ -121,10 +123,19 @@ public class HuntScene : Scene
 		enemy_area_x = 500;
 		enemy_area_y = 450;
 		enemy_area_w = 760;
+		
+		dialog.set_content("臣亮言：先帝創業未半，而中道崩殂。今天下三分，益州疲弊，此誠危急存亡之秋也。然侍衛之臣，不懈於內；忠志之士，忘身於外者，蓋追先帝");
 
 		set_background(null);
 
 		draw_card(hand_limit);
+		// TODO: temp test
+		hand.Clear();
+		for (int i=0; i<10; i++)
+		{
+			hand.Add(new Card());
+		}
+		hand_ui.set_hand(hand);
 
 		clear_input();
 	}
@@ -280,7 +291,6 @@ public class HuntScene : Scene
 				string msg = executing_action.data.name;
 			}
 			*/
-		dialog.set_content("臣亮言：先帝創業未半，而中道崩殂。今天下三分，益州疲弊，此誠危急存亡之秋也。然侍衛之臣，不懈於內；忠志之士，忘身於外者，蓋追先帝");
 	}
 
 	public void update_map()

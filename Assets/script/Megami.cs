@@ -11,6 +11,7 @@ public class Megami : MonoBehaviour
 	public UIGauge hp_bar;
 	public UIGauge mp_bar;
 	public UISimpleDialog dialog;
+	public UIHand hand;
 
 	private GameObject canvas;
 
@@ -32,6 +33,13 @@ public class Megami : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		scene.update_state();
+	}
+
+	public T generate_ui<T>(T template) where T : MonoBehaviour
+	{
+		T res = Instantiate(template);
+		res.transform.SetParent(canvas.transform);
+		return res;
 	}
 
 	public void ClearCanvas()

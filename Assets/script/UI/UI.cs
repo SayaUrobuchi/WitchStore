@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Collections.Generic;
 
 public static class UI
 {
@@ -47,5 +47,20 @@ public static class UI
 	public static float get_pos_y(this Image img)
 	{
 		return img.rectTransform.anchoredPosition.y;
+	}
+
+	public static void resize<T>(this List<T> list, int size) where T : new()
+	{
+		if (list.Count > size)
+		{
+			list.RemoveRange(size, list.Count-size);
+		}
+		if (list.Count < size)
+		{
+			while (list.Count < size)
+			{
+				list.Add(new T());
+			}
+		}
 	}
 }

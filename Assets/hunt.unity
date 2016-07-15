@@ -762,6 +762,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 0}
+  fadein_time: 0.6
+--- !u!114 &978279013 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11455950, guid: 3e12ceea3052cac4499f29ad00a87f84,
+    type: 2}
+  m_PrefabInternal: {fileID: 1468227234}
+  m_Script: {fileID: 11500000, guid: c15c48949c508684295719ea08ed9ff2, type: 3}
 --- !u!1001 &1016101163
 Prefab:
   m_ObjectHideFlags: 0
@@ -1352,7 +1359,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &2113270804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1370,6 +1377,7 @@ MonoBehaviour:
   hp_bar: {fileID: 643582651}
   mp_bar: {fileID: 537046725}
   dialog: {fileID: 933915427}
+  hand: {fileID: 978279013}
 --- !u!1 &2124549381
 GameObject:
   m_ObjectHideFlags: 0
