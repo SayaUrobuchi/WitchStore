@@ -105,31 +105,12 @@ public class UIHand : MonoBehaviour
 		card.set_pos(x, y);
 	}
 
-	public void set_hand(List<Card> hand, int sel = 0)
+	private void refresh_hand()
 	{
-		card_list = hand;
-		length = card_list.Count;
-		selected = sel;
-		// sync card number
-		if (card_ui_list.Count > length)
-		{
-			while (card_ui_list.Count > length)
-			{
-				delete_card(card_ui_list.Count-1);
-			}
-		}
-		else if (card_ui_list.Count < length)
-		{
-			while (card_ui_list.Count < length)
-			{
-				add_card();
-			}
-		}
 		// set card into ui
 		for (int i=0; i<length; i++)
 		{
 			UICard ui = card_ui_list[i];
-			ui.set_card(card_list[i]);
 			ui.set_selected(selected == i);
 			// get location
 			int dis = get_dis(i);
@@ -155,5 +136,39 @@ public class UIHand : MonoBehaviour
 			int idx = i % length;
 			card_ui_list[idx].transform.SetAsFirstSibling();
 		}
+	}
+
+	public void set_selected(int sel)
+	{
+		selected = sel;
+		refresh_hand();
+	}
+
+	public void set_hand(List<Card> hand, int sel = 0)
+	{
+		card_list = hand;
+		length = card_list.Count;
+		// sync card number
+		if (card_ui_list.Count > length)
+		{
+			while (card_ui_list.Count > length)
+			{
+				delete_card(card_ui_list.Count-1);
+			}
+		}
+		else if (card_ui_list.Count < length)
+		{
+			while (card_ui_list.Count < length)
+			{
+				add_card();
+			}
+		}
+		// set card into ui
+		for (int i=0; i<length; i++)
+		{
+			UICard ui = card_ui_list[i];
+			ui.set_card(card_list[i]);
+		}
+		set_selected(sel);
 	}
 }

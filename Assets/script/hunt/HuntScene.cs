@@ -199,6 +199,17 @@ public class HuntScene : Scene
 		}
 
 		update_shake_after();
+		
+		if (Input.GetKeyDown(KeyCode.UpArrow))
+		{
+			hand_current = (hand_current+hand.Count-1) % hand.Count;
+			hand_ui.set_selected(hand_current);
+		}
+		if (Input.GetKeyDown(KeyCode.DownArrow))
+		{
+			hand_current = (hand_current+1) % hand.Count;
+			hand_ui.set_selected(hand_current);
+		}
 	}
 
 	public void update_logic()
